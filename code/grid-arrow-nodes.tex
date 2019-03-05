@@ -1,0 +1,14 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usepackage{pifont}
+\usepackage{xcolor}
+
+\begin{document}
+\begin{tikzpicture}
+\draw[step=1 cm,very thick] (0,0) grid (3,3);
+\foreach \i in {0,1,2,3}
+{\foreach \j in {0,1,2,3}{
+\node at (\i+0.05,\j) {\textcolor{cyan}{\Large \ding{218}}};}}
+\end{tikzpicture}
+\end{document}
