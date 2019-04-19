@@ -6,5 +6,5 @@ A bank of TikZ pictures
 ## Resources:
 
 1. [TikZ Manual](http://mirror.iopb.res.in/tex-archive/graphics/pgf/base/doc/pgfmanual.pdf)
-2. [PostScript fonts - used for those fancy arrows e.g pifont](http://ctan.imsc.res.in/macros/latex/required/psnfss/psnfss2e.pdf)
+2. [PostScript fonts - used for those fancy arrows e.g. pifont](http://ctan.imsc.res.in/macros/latex/required/psnfss/psnfss2e.pdf)
 3. [The Great, Big List of LaTeX Symbols](https://www.rpi.edu/dept/arc/training/latex/LaTeX_symbols.pdf)
