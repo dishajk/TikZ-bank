@@ -1,14 +1,15 @@
 \documentclass{standalone}
-
+\usepackage[T1]{fontenc} % recommended but not necessary
+\usepackage{textcomp} % recommended but not necessary
 \usepackage{tikz}
-\usepackage{pifont}
-\usepackage{xcolor}
+\usepackage{pifont} %for the arrow symbol
+\usepackage{xcolor} %for coloring the arrows
 
 \begin{document}
 \begin{tikzpicture}
-\draw[step=1 cm,very thick] (0,0) grid (3,3);
+\draw[step=1 cm,very thick] (0,0) grid (3,3); %draw the grid
 \foreach \i in {0,1,2,3}
 {\foreach \j in {0,1,2,3}{
-\node at (\i+0.05,\j) {\textcolor{cyan}{\Large \ding{218}}};}}
+\node at (\i+0.05,\j) {\textcolor{cyan}{\Large \ding{218}}};}} %add the arrows
 \end{tikzpicture}
 \end{document}
