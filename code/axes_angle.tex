@@ -1,0 +1,21 @@
+\documentclass[12pt,a4paper]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xparse}
+\usepackage{physics}
+\usepackage{tikz}
+\author{Disha J. Kuzhively}
+\begin{document}
+\begin{tikzpicture}
+\draw[->] (0,-1) -- (0,3)node[left]{$\vu{z}$};
+\draw[black!50] (-1,0) -- (3,0);
+\draw[->] (0,0)--+(-10:3)node[right]{$\va{A}$};
+%\filldraw[fill=black!20!white, draw=black!50!white] (0,0) -- (0,1) arc [start angle=90, end angle=-10, radius=1] -- cycle;
+\draw[->] (0,0)--+(25:3)node[right]{$\va{S}$};
+\draw[->] (0,1) arc [start angle=90, end angle=25, radius=1];
+\draw (45:1.2) node{$\theta$};
+\draw[dashed] (0,1) arc [start angle=90, end angle=-10, radius=1];
+\end{tikzpicture}
+\end{document}
