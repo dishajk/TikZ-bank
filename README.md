@@ -1,6 +1,8 @@
 # TikZ-bank
 A bank of TikZ pictures
 
+![3x3 grid with arrow at nodes](https://github.com/djkuzhively/TikZ-bank/blob/master/code/axes_angle.svg)
+
 [3x3 grid with arrow at nodes](https://github.com/djkuzhively/TikZ-bank/blob/master/pictures/grid-arrow-nodes.pdf) | [tikz](https://github.com/djkuzhively/TikZ-bank/blob/master/code/grid-arrow-nodes.tex)
 
 [Vector making an angle to the axes](https://github.com/djkuzhively/TikZ-bank/blob/master/pictures/axes_angle.pdf) | [tikz](https://github.com/djkuzhively/TikZ-bank/blob/master/code/axes_angle.tex)
