@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+\coordinate (A) at (0,0);
+\coordinate (B) at (1,0);
+\coordinate (C) at (0,2);
+\coordinate (D) at (1,2);
+\coordinate (E) at (0,4);
+\coordinate (F) at (1,4);
+\draw (D) -- (E) --++ (90:2) arc [start angle=0, end angle=180, radius=1] --++ (270:8) --+ arc[start angle=180, end angle=360, radius=1]--(A);
+\fill[white] (0.5,3) circle (5pt);
+\draw (B) -- (C) -- (F) --++ (90:2) arc [start angle=0, end angle=180, radius=2] --++ (270:8) --+ arc[start angle=180, end angle=360, radius=2]--(B);
+\fill[white] (0.5,1) circle (5pt);
+\draw (A) -- (D);
+\end{tikzpicture}

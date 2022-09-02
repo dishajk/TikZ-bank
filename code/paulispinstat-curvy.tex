@@ -1,0 +1,10 @@
+\begin{tikzpicture}
+\coordinate (A) at (0,0);
+\coordinate (B) at (1,0);
+\coordinate (C) at (0,2);
+\coordinate (D) at (1,2);
+\coordinate (E) at (0,4);
+\coordinate (F) at (1,4);
+\draw[red] (A) to[out=63,in=270] (D) to[out=90,in=-63] (E) to[out=117, in=90, looseness=4] (-2,2) to[out=270, in=243, looseness=4] (A);
+\draw[blue] (B) to[out=63,in=270] (C) to[out=90,in=-63] (F) to[out=117, in=90, looseness=4] (-3,2) to[out=270, in=243, looseness=4] (B);
+\end{tikzpicture}
