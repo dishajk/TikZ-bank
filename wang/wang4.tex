@@ -2,7 +2,7 @@
 \documentclass[a3paper]{article}
 \usepackage[left=0mm,top=0mm,right=0mm,bottom=0mm]{geometry}
 \usepackage{tikz}
-\usetikzlibrary {backgrounds}
+% \usetikzlibrary {backgrounds}
 \begin{document}
 \thispagestyle{empty}
 \begin{tikzpicture}
@@ -13,8 +13,8 @@
     \pgfmathsetmacro{\l}{sqrt(8)}
     \foreach \y in {0,1,2,...,9}{
         \foreach \x in {0,1,...,6}{
-            \filldraw[cyan!40] (4*\x,4*\y) --++ (0:4) --++ (90:4) --++ (225:\l) --++(135:\l); 
-            \filldraw[magenta!40] (4*\x,4*\y) ++ (45:\l) --++ (45:\l) --++ (180:4) --++ (315:\l); 
+            \filldraw[magenta!40] (4*\x,4*\y) --++ (0:4) --++ (135:\l); 
+            \filldraw[yellow!40] (4*\x,4*\y) ++ (45:\l) --++ (45:\l) --++ (180:4) --++ (315:\l); 
             \draw[very thick] (4*\x,4*\y) --++ (0:4) --++ (90:4) --++ (180:4) --++ (270:4);
         }
     };
