@@ -5,12 +5,12 @@
 \begin{document}
 \thispagestyle{empty}
 \begin{tikzpicture}
-    \draw[step=2.5,very thick] (0,0) grid (20,20);
-    \foreach \x in {0,2.5,...,17.5} {
-        \foreach \y in {0,2.5,...,17.5} {
-            \pgfmathtruncatemacro{\shade}{mod(\x/2.5+\y/2.5,2)}
+    \draw[step=2,very thick] (0,0) grid (20,24);
+    \foreach \x in {0,2,...,18} {
+        \foreach \y in {0,2,...,22} {
+            \pgfmathtruncatemacro{\shade}{mod(\x/2+\y/2,2)}
             \ifnum\shade=0
-                \filldraw[black!70] (\x,\y) rectangle (\x+2.5,\y+2.5);
+                \filldraw[black!70] (\x,\y) rectangle (\x+2,\y+2);
             \fi
         }
     }
