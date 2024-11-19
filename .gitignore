@@ -1,6 +1,8 @@
 *.DS_Store
 *.synctex.gz
 
+Gardner1977.pdf
+
 *.aux
 *.log
 *.out
