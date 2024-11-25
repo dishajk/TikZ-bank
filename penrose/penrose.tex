@@ -1,25 +1,44 @@
+% To convert to svg
+% lualatex --output-format=dvi filename.tex
+% dvisvgm filename.dvi
+
 \documentclass[border=0]{standalone}
+% \documentclass[dvisvgm]{minimal}		%uncomment to convert to svg
+
 % \documentclass[a4paper]{article}
 % \usepackage[left=-2mm,top=2mm,right=0mm,bottom=0mm]{geometry}
 \usepackage{tikz}
+\usepackage{xcolor}
+\definecolor{pGreen}{HTML}{006633}
+\definecolor{sgbRed}{HTML}{cc6688}
 \begin{document}
 % \thispagestyle{empty}
 
 \begin{tikzpicture}
     \pgfmathsetmacro{\p}{(1+sqrt(5))/2}
-    \pgfmathsetmacro{\w}{4}
+    \pgfmathsetmacro{\w}{4*\p*\p}
     \tikzset{
         kite/.pic={
-            \draw[very thin] (0,0)--(0:\w*\p) -- (36:\w*\p) --(72:\w*\p)--cycle;
-            \draw[dashed, very thick] (0:\w) arc (0:72:\w);
-            \draw[dotted, very thick] (72:\p*\w)++(-36:{\w/(1+\p)}) arc (144:288:\w/\p);
+            % \draw[very thin,fill=#1] (0,0)--(0:\w*\p) -- (36:\w*\p) --(72:\w*\p)--cycle;
+            \draw[ultra thick] (0,0)--(0:\w*\p) -- (36:\w*\p) --(72:\w*\p)--cycle;
+            % \draw[dash pattern=on 10pt off 15pt,line width=5pt,white] (0:\w) arc (0:72:\w);
+            % \draw[loosely dotted,line width=5pt,white] (72:\p*\w)++(-36:{\w/(1+\p)}) arc (144:288:\w/\p);
+        },
+        dart/.pic={
+            % \draw[very thin,fill=#1] (0,0)--(0:\w*\p) -- (36:\w) --(72:\w*\p)--cycle;
+            \draw[very thick] (0,0)--(0:\w*\p) -- (36:\w) --(72:\w*\p)--cycle;
+            % \draw[dash pattern=on 10pt off 15pt,line width=5pt,white] (0:\w/\p) arc (0:72:\w/\p);
+            % \draw[loosely dotted,line width=5pt,white] (72:\p*\w)++(-72:{\w/\p}) arc (108:324:{\w/(\p+1)});
         }
     }
-    \foreach \x in {0,1,2,...,3}{
-        \foreach \y in {0,1,2,...,4}{
-            \draw ({2*\p*\w*cos(54)*\x},{(\p*sin(54)+sin(18))*\w*\y}) pic [rotate=54] {kite};
-            \draw ({\p*\w*cos(54)+2*\p*\w*cos(54)*\x},{\p*\w*sin(54)+(\p*sin(54)+sin(18))*\w*\y}) pic [rotate=-126] {kite};
-        }
-    };
+    \draw (0,0) pic {dart};
+    % \draw (0,0) pic {dart=sgbRed};
+    % \draw (0,0) pic {kite=pGreen};
+    % \foreach \x in {0,1,2,...,3}{
+    %     \foreach \y in {0,1,2,...,4}{
+    %         \draw ({2*\p*\w*cos(54)*\x},{(\p*sin(54)+sin(18))*\w*\y}) pic [rotate=54] {kite};
+    %         \draw ({\p*\w*cos(54)+2*\p*\w*cos(54)*\x},{\p*\w*sin(54)+(\p*sin(54)+sin(18))*\w*\y}) pic [rotate=-126] {kite};
+    %     }
+    % };
 \end{tikzpicture}
 \end{document}
