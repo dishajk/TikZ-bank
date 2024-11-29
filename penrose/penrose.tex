@@ -2,43 +2,60 @@
 % lualatex --output-format=dvi filename.tex
 % dvisvgm filename.dvi
 
-\documentclass[border=0]{standalone}
+% \documentclass[border=0]{standalone}
 % \documentclass[dvisvgm]{minimal}		%uncomment to convert to svg
 
-% \documentclass[a4paper]{article}
-% \usepackage[left=-2mm,top=2mm,right=0mm,bottom=0mm]{geometry}
+\documentclass[a3paper]{article}
+\usepackage[left=1cm,top=1cm,right=0mm,bottom=0mm]{geometry}
 \usepackage{tikz}
 \usepackage{xcolor}
 \definecolor{pGreen}{HTML}{006633}
 \definecolor{sgbRed}{HTML}{cc6688}
 \begin{document}
 % \thispagestyle{empty}
-
+% \begin{rotate}{180}
 \begin{tikzpicture}
     \pgfmathsetmacro{\p}{(1+sqrt(5))/2}
-    \pgfmathsetmacro{\w}{4*\p*\p}
+    \pgfmathsetmacro{\w}{4*\p}
     \tikzset{
         kite/.pic={
-            % \draw[very thin,fill=#1] (0,0)--(0:\w*\p) -- (36:\w*\p) --(72:\w*\p)--cycle;
-            \draw[ultra thick] (0,0)--(0:\w*\p) -- (36:\w*\p) --(72:\w*\p)--cycle;
-            % \draw[dash pattern=on 10pt off 15pt,line width=5pt,white] (0:\w) arc (0:72:\w);
-            % \draw[loosely dotted,line width=5pt,white] (72:\p*\w)++(-36:{\w/(1+\p)}) arc (144:288:\w/\p);
+            % \draw[ultra thick] (0,0)--(0:\w*\p) -- (36:\w*\p) --(72:\w*\p)--cycle;
+            \draw[very thin,fill=#1] (0,0)--(0:\w*\p) -- (36:\w*\p) --(72:\w*\p)--cycle;
+            \draw[dash pattern=on 10pt off 15pt,line width=5pt,white] (0:\w) arc (0:72:\w);
+            \draw[loosely dotted,line width=5pt,white] (72:\p*\w)++(-36:{\w/(1+\p)}) arc (144:288:\w/\p);
         },
         dart/.pic={
-            % \draw[very thin,fill=#1] (0,0)--(0:\w*\p) -- (36:\w) --(72:\w*\p)--cycle;
-            \draw[very thick] (0,0)--(0:\w*\p) -- (36:\w) --(72:\w*\p)--cycle;
-            % \draw[dash pattern=on 10pt off 15pt,line width=5pt,white] (0:\w/\p) arc (0:72:\w/\p);
-            % \draw[loosely dotted,line width=5pt,white] (72:\p*\w)++(-72:{\w/\p}) arc (108:324:{\w/(\p+1)});
+            % \draw[very thick] (0,0)--(0:\w*\p) -- (36:\w) --(72:\w*\p)--cycle;
+            \draw[very thin,fill=#1] (0,0)--(0:\w*\p) -- (36:\w) --(72:\w*\p)--cycle;
+            \draw[dash pattern=on 10pt off 15pt,line width=5pt,white] (0:\w/\p) arc (0:72:\w/\p);
+            \draw[loosely dotted,line width=5pt,white] (72:\p*\w)++(-72:{\w/\p}) arc (108:324:{\w/(\p+1)});
         }
     }
-    \draw (0,0) pic {dart};
-    % \draw (0,0) pic {dart=sgbRed};
-    % \draw (0,0) pic {kite=pGreen};
-    % \foreach \x in {0,1,2,...,3}{
-    %     \foreach \y in {0,1,2,...,4}{
-    %         \draw ({2*\p*\w*cos(54)*\x},{(\p*sin(54)+sin(18))*\w*\y}) pic [rotate=54] {kite};
-    %         \draw ({\p*\w*cos(54)+2*\p*\w*cos(54)*\x},{\p*\w*sin(54)+(\p*sin(54)+sin(18))*\w*\y}) pic [rotate=-126] {kite};
+% For tiling Kite on A3
+
+    % \foreach \x in {0,1}{
+    %     \foreach \y in {0,...,2}{
+    %         \draw ({2*\p*\w*cos(54)*\x},{(\p*sin(54)+sin(18))*\w*\y}) pic [rotate=54] {kite=sgbRed!50};
     %     }
     % };
+    % \foreach \x in {0}{
+    %     \foreach \y in {0,...,2}{
+    %         \draw ({\p*\w*cos(54)+2*\p*\w*cos(54)*\x},{\p*\w*sin(54)+(\p*sin(54)+sin(18))*\w*\y}) pic [rotate=-126] {kite=sgbRed!50};
+    %     }
+    % };
+   
+% For tiling Dart on A3
+
+    \foreach \x in {0,1}{
+        \foreach \y in {0,...,4}{
+            \draw ({2*\w*\p*cos(54)*\x},{\y*\w}) pic[rotate=54] {dart=sgbRed};    
+        }
+    };
+    \foreach \x in {0}{
+        \foreach \y in {0,...,4}{
+            \draw ({2*\w*\p*cos(54)*\x+\w*\p*cos(54)},{\y*\w+\w*\p*sin(54)}) pic[rotate=-126] {dart=sgbRed};    
+        }
+    };
 \end{tikzpicture}
+% \end{rotate}
 \end{document}
