@@ -4,26 +4,23 @@
 \usepackage{tikz}
 \usepackage{xcolor}
 \definecolor{pGreen}{HTML}{006633}
-\definecolor{sgbGreen1}{HTML}{66cc99}
-\definecolor{sgbGreen2}{HTML}{ccffcc}
-
 \definecolor{pRed}{HTML}{cc0033}
-\definecolor{sgbRed}{HTML}{cc6688}
-\definecolor{sgbRed2}{HTML}{FF99CC}
-
-\definecolor{sgbGrey}{HTML}{333333}
-\definecolor{sgbGrey2}{HTML}{996666}
-\definecolor{sgbGrey3}{HTML}{999966}
 
 \begin{document}
 \begin{tikzpicture}
-    \pgfmathsetmacro{\w}{4}
+    \pgfmathsetmacro{\w}{4}	%scale
+	\pgfmathsetmacro{\a}{sqrt(3)}
+	\pgfmathsetmacro{\b}{1}
     \tikzset{
         tile11/.pic={
-            \filldraw[sgbGreen1,draw=pRed,ultra thick] (0,0) --++(-90:\w)--++(0:\w)--++(-60:\w)--++(30:\w)--++(90:{2*\w})--++(150:\w)--++(60:\w)--++(120:\w)--++(-150:\w)--++(-90:\w)--++(180:\w)--++(-120:\w)--cycle;
-        }
+            \filldraw[pGreen,draw=pRed,ultra thick] (0,0) --++(-90:\w)--++(0:\w)--++(-60:\w)--++(30:\w)--++(90:{2*\w})--++(150:\w)--++(60:\w)--++(120:\w)--++(-150:\w)--++(-90:\w)--++(180:\w)--++(-120:\w)--cycle;
+        },
+	monotile/.pic={
+		\filldraw[pRed,ultra thick] (0,0) --++ {\a*(1,0)} --++ {\b*(1/2,sqrt(3)/2)};
+	}
     };
-    \draw(0,0) pic {tile11};
+	\draw[help lines] (0,0) grid (3,2);
+	\draw(0,0) pic {monotile};
 %    \draw(0,20) pic {tile11};
 %    \draw(13,0) pic {tile11};
 %    \draw(13,20) pic {tile11};
