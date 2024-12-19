@@ -9,13 +9,13 @@
 \begin{document}
 \begin{tikzpicture}
     \pgfmathsetmacro{\w}{1}	%scale
-	\pgfmathsetmacro{\a}{sqrt(3)}
+	\pgfmathsetmacro{\a}{sqrt(2)}
 	\pgfmathsetmacro{\b}{1}
     \tikzset{
         monotile/.pic={
             \filldraw[draw=pGreen, fill=pRed!50, thick] (0,0) --++(-90:{\a*\w})--++(0:{\b*\w})--++(-60:{\b*\w})--++(30:{\a*\w})--++(90:{2*\a*\w})--++(150:{\w*\a})--++(60:{\w*\b})--++(120:{\w*\b})--++(-150:{\w*\a})--++(-90:{\w*\a})--++(180:{\w*\b})--++(-120:{\w*\b})--cycle;
         }
     };
-	\draw(0,0) pic {monotile};
+	\draw(0,0) pic[rotate=90] {monotile};
 \end{tikzpicture}
 \end{document}
