@@ -8,3 +8,6 @@ Gardner1977.pdf
 *.out
 *.bib
 *.dvi
+
+.fdb_latexmk
+.fls
