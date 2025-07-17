@@ -7,7 +7,7 @@
 \begin{tikzpicture}
     \pgfmathsetmacro{\w}{2}	%width
     \newlength{\s}
-    \pgfmathsetlength{\s}{\textwidth/18}	%scale
+    \pgfmathsetlength{\s}{\textwidth/18.5}	%scale
     \tikzset{
         sticks/.pic={
             \draw[very thick] (0,0) rectangle (2*\s,\w) node[midway] {\Huge A};
@@ -21,7 +21,7 @@
     };
     \foreach \y in {0,1,...,9}{
         \draw (0,\y*\w*2) pic {sticks};
-        % \draw (0,0) pic {sticks};
+        \draw[thick] (18*\s,{\y*\w*2-\w}) --++ (90:{2*\w});
     }
 \end{tikzpicture}
 

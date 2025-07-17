@@ -1,0 +1,12 @@
+The paper sticks can be used for the VP unit on Commensurables and Irrational numbers.
+
+Relative width of the sticks:
+
+E: 1
+A: 2
+C: 3
+D: 4
+H: 5
+F: 6
+G: 7
+B: 8
