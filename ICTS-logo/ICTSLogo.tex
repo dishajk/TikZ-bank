@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% ICTS maroon
+\definecolor{icts}{HTML}{7A1F1F}
+
+\newcommand{\ICTSfullcontrol}[4][1.0]{%
+  \begin{tikzpicture}[scale=#1, baseline={(0,-13ex)}]
+    \pgfmathsetmacro{\b}{#2}
+    \pgfmathsetmacro{\h}{#3}
+
+    % loop over triangles
+    \foreach \x/\y/\ang/\flip [count=\i] in {#4} {
+      % reflection transform: flip=1 -> mirror across y-axis
+      \ifnum\flip=1
+        \begin{scope}[shift={(\x,\y)}, rotate=\ang, xscale=-1]
+          \fill[icts] (0,0) -- (\b,0) -- (0,\h) -- cycle;
+          %UNCOMMENT TO LABEL THE TRIANGLES
+          % \node[text=white,font=\bfseries] at ({\b/3},{\h/3}) {\i}; 
+        \end{scope}
+      \else
+        \begin{scope}[shift={(\x,\y)}, rotate=\ang]
+          \fill[icts] (0,0) -- (\b,0) -- (0,\h) -- cycle;
+          %UNCOMMENT TO LABEL THE TRIANGLES
+          % \node[text=white,font=\bfseries] at ({\b/3},{\h/3}) {\i};
+        \end{scope}
+      \fi
+    }
+  \end{tikzpicture}%
+}
+
+\begin{document}
+
+Behold! \scalebox{0.1}{
+\ICTSfullcontrol[0.8]{3}{0.9}{-2/-2/90/0, 0.1/-2.1/180/0, 0.2/0/270/0, -1.9/0.1/0/0}}\
+
+
+\end{document}
