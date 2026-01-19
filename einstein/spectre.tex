@@ -1,6 +1,7 @@
 %\documentclass[a3paper]{article}
 %\usepackage[left=0mm,top=1cm,right=0mm,bottom=0mm]{geometry}
-\documentclass[border=0]{standalone}
+% \documentclass[border=0]{standalone}
+\documentclass[dvisvgm]{minimal}
 \usepackage{tikz}
 \usetikzlibrary{calc}
 \usepackage{xcolor}
@@ -30,7 +31,7 @@
 
     \tikzset{
         monotile/.pic={
-            \draw[draw=pGreen, thick,fill=pGreen!50] (A) to[bend left] (A2) to[bend right] (A3) to[bend left] (A4) to[bend right] (A5) to[bend left] (A6) to[bend right] (A7) to[bend left] (A8)to[bend right] (A9) to[bend left] (A10) to[bend right] (A11) to[bend left] (A12)to[bend right] (A13) to[bend left] (A14) to[bend right] (A);
+            \draw[draw=black, thick,fill=black] (A) to[bend left] (A2) to[bend right] (A3) to[bend left] (A4) to[bend right] (A5) to[bend left] (A6) to[bend right] (A7) to[bend left] (A8)to[bend right] (A9) to[bend left] (A10) to[bend right] (A11) to[bend left] (A12)to[bend right] (A13) to[bend left] (A14) to[bend right] (A);
         }
     };
 	\draw (0,0) pic {monotile};
