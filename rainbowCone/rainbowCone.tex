@@ -1,0 +1,42 @@
+% Marble Model of Individual Raindrop
+
+% These templates can be used in classroom activities.
+% Reference: http://www.exo.net/~donr/activities/Rainbow_Models.pdf
+
+\documentclass[a4paper]{article}
+\usepackage[left=-4mm,top=1mm,right=0mm,bottom=0mm]{geometry}
+\usepackage{tikz}
+\usepackage[none]{hyphenat}
+\usepackage{xcolor}
+\usetikzlibrary{calc}
+\tikzset{
+    cone/.style={
+        ultra thick,
+    }
+}
+\pgfmathsetmacro{\l}{5.0} %circumference of the marble
+\newcommand{\cone}[1]{
+    \pgfmathsetmacro{\a}{#1}
+    \pgfmathsetmacro{\ri}{\l/\a}
+    \draw[ultra thick] (0,0) circle [radius=0.22\textwidth];
+    \draw[ultra thick] (\ri,0)--(0.22\textwidth,0);
+    \draw[ultra thick, dashed] ({deg(#1)}:\ri)--({deg(#1)}:0.22\textwidth);
+    \draw[ultra thick] (0,0) circle [radius=\ri];
+}
+\begin{document}
+\foreach \i in {pi,4*pi/3,3*pi/2}{
+\begin{tikzpicture}
+    \foreach \n in {1,...,6} {
+    \pgfmathtruncatemacro{\row}{int((\n-1)/2)}
+    \pgfmathtruncatemacro{\col}{mod(\n-1,2)}
+    \begin{scope}[
+        xshift=\col*0.45\textwidth,
+        yshift=-\row*0.45\textwidth
+    ]
+        \cone{\i}
+    \end{scope}
+}
+\end{tikzpicture}
+\newpage    
+}
+\end{document}
