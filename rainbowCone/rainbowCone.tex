@@ -4,7 +4,7 @@
 % Reference: http://www.exo.net/~donr/activities/Rainbow_Models.pdf
 
 \documentclass[a4paper]{article}
-\usepackage[left=-4mm,top=1mm,right=0mm,bottom=0mm]{geometry}
+\usepackage[left=0mm,top=1mm,right=0mm,bottom=0mm]{geometry}
 \usepackage{tikz}
 \usepackage[none]{hyphenat}
 \usepackage{xcolor}
@@ -18,9 +18,9 @@
 \newcommand{\cone}[1]{
     \pgfmathsetmacro{\a}{#1}
     \pgfmathsetmacro{\ri}{\l/\a}
-    \draw[ultra thick] (0,0) circle [radius=0.22\textwidth];
-    \draw[ultra thick] (\ri,0)--(0.22\textwidth,0);
-    \draw[ultra thick, dashed] ({deg(#1)}:\ri)--({deg(#1)}:0.22\textwidth);
+    \draw[ultra thick] (0,0) circle [radius=0.225\textwidth];
+    \draw[ultra thick] (\ri,0)--(0.225\textwidth,0);
+    \draw[ultra thick, dashed] ({deg(#1)}:\ri)--({deg(#1)}:0.225\textwidth);
     \draw[ultra thick] (0,0) circle [radius=\ri];
 }
 \begin{document}
@@ -30,8 +30,8 @@
     \pgfmathtruncatemacro{\row}{int((\n-1)/2)}
     \pgfmathtruncatemacro{\col}{mod(\n-1,2)}
     \begin{scope}[
-        xshift=\col*0.45\textwidth,
-        yshift=-\row*0.45\textwidth
+        xshift=\col*0.475\textwidth,
+        yshift=-\row*0.47\textwidth
     ]
         \cone{\i}
     \end{scope}
