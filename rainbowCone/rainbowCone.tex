@@ -3,8 +3,8 @@
 % These templates can be used in classroom activities.
 % Reference: http://www.exo.net/~donr/activities/Rainbow_Models.pdf
 
-\documentclass[a4paper]{article} %paper size can be a0paper, a1paper, a2paper, a3paper, a4paper, a5paper, a6paper,b0paper, b1paper, b2paper, b3paper, b4paper, b5paper, b6paper,c0paper, c1paper, c2paper, c3paper, c4paper, c5paper, c6paper,b0j, b1j, b2j, b3j, b4j, b5j, b6j,ansiapaper, ansibpaper, ansicpaper, ansidpaper, ansiepaper,letterpaper, executivepaper, legalpaper
-\usepackage[left=0mm,top=1mm,right=0mm,bottom=0mm]{geometry}
+\documentclass[letterpaper]{article} %paper size can be a0paper, a1paper, a2paper, a3paper, a4paper, a5paper, a6paper,b0paper, b1paper, b2paper, b3paper, b4paper, b5paper, b6paper,c0paper, c1paper, c2paper, c3paper, c4paper, c5paper, c6paper,b0j, b1j, b2j, b3j, b4j, b5j, b6j,ansiapaper, ansibpaper, ansicpaper, ansidpaper, ansiepaper,letterpaper, executivepaper, legalpaper
+\usepackage[left=0mm,top=0mm,right=0mm,bottom=0mm]{geometry}
 \usepackage{tikz}
 \usepackage[none]{hyphenat}
 \usepackage{xcolor}
@@ -24,9 +24,11 @@
     \draw[ultra thick] (0,0) circle [radius=\ri];
 }
 \begin{document}
+\pgfmathtruncatemacro{\h}{\the\textheight/(0.47*\the\textwidth)}
+\pgfmathsetmacro{\n}{2*\h}
 \foreach \angle in {pi,4*pi/3,3*pi/2}{
 \begin{tikzpicture}
-    \foreach \n in {1,...,6} {
+    \foreach \n in {1,...,\n} {
     \pgfmathtruncatemacro{\row}{int((\n-1)/2)}
     \pgfmathtruncatemacro{\col}{mod(\n-1,2)}
     \begin{scope}[
