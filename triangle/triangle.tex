@@ -1,6 +1,6 @@
-\documentclass[a3paper]{article}
-\usepackage[left=2mm,top=1cm,right=0mm,bottom=0mm]{geometry}
-% \documentclass[border=0]{standalone}
+% \documentclass[a4paper]{article}
+% \usepackage[left=0mm,top=1cm]{geometry}
+\documentclass[border=0]{standalone}
 \usepackage{tikz}
 \usepackage{xcolor}
 \definecolor{pGreen}{HTML}{006633}
@@ -16,18 +16,20 @@
 \definecolor{sgbGrey3}{HTML}{999966}
 
 \begin{document}
+\thispagestyle{empty}
+\centering
 \begin{tikzpicture}
-    \pgfmathsetmacro{\w}{4}
+    \pgfmathsetmacro{\w}{13.5}
     \tikzset{
         triangle/.pic={
-            \filldraw[sgbRed2,draw=sgbGrey,ultra thick] (0,0) --++(0:\w)--++(120:\w)--cycle;
-            \filldraw[sgbRed2,draw=sgbGrey,ultra thick] (\w,0) --++(60:\w)--++(180:\w)--cycle;
-            \filldraw[sgbRed2,draw=sgbGrey,ultra thick] ({\w*cos(60)},{-\w*sin(60)}) --++(60:\w)--++(180:\w)--cycle;
-            \filldraw[sgbRed2,draw=sgbGrey,ultra thick] ({\w*cos(60)},{-\w*sin(60)}) --++(0:\w)--++(120:\w)--cycle;
+            \draw[ultra thick] (0,0) --++(0:\w)--++(120:\w)--cycle;
+            % \draw[ultra thick] (\w,0) --++(60:\w)--++(180:\w)--cycle;
+            \draw[ultra thick] ({\w*cos(60)},{-\w*sin(60)}) --++(60:\w)--++(180:\w)--cycle;
+            % \draw[ultra thick] ({\w*cos(60)},{-\w*sin(60)}) --++(0:\w)--++(120:\w)--cycle;
         }
     };
-    \foreach \col in {0,...,5}{
-        \foreach \row in {0,...,4}{
+    \foreach \col in {0}{
+        \foreach \row in {0}{
         \draw(\col*\w,{2*\row*\w*sin(60)}) pic {triangle};}
         }
 \end{tikzpicture}
