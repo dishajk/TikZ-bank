@@ -1,9 +1,26 @@
+% xelatex Pick15.tex
 \documentclass[a4paper]{article}
 \usepackage[margin=0mm]{geometry}
-\usepackage{poker}
+\usepackage{pst-poker}
 \begin{document}
-\setkeys{poker}{option=value[,option=value]}
-\begin{cards}
-    \crdAs\crdones\crdtenh\crdsevd\crdsevc\crdQd
-\end{cards}
+% \psset{option=value[,option=value]}
+% \begin{cards}
+    % \crdAs\crdones\crdtenh\crdsevd\crdsevc\crdQd
+% \end{cards}
+
+\psset{crdshadow=none,framebg=white,unit=1.9}
+\begin{center}
+\begin{tabular}{ c c c }
+ \crdAs & \crdtwos & \crdtres \\ 
+ \crdfours & \crdfives & \crdsixs \\  
+ \crdsevs & \crdeigs & \crdnines    
+\end{tabular}
+\end{center}
+\begin{center}
+\begin{tabular}{ c c c }
+ \crdAh & \crdtwoh & \crdtreh \\ 
+ \crdfourh & \crdfiveh & \crdsixh \\  
+ \crdsevh & \crdeigh & \crdnineh    
+\end{tabular}
+\end{center}
 \end{document}
