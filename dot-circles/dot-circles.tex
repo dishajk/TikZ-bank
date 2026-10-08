@@ -44,6 +44,18 @@
 
 % }
 % \end{tikzpicture}
-% \newpage    
+\newpage    
 % }
+\begin{tikzpicture}
+        \foreach \n in {1,...,12} {
+    \pgfmathtruncatemacro{\row}{int((\n-1)/3)}
+    \pgfmathtruncatemacro{\col}{mod(\n-1,3)}
+    \begin{scope}[
+        xshift=\col*0.33\textwidth,
+        yshift=-\row*0.33\textwidth
+    ]
+        \draw (0,0) circle [radius=\textwidth/(8)];
+    \end{scope}
+        }
+\end{tikzpicture}
 \end{document}
