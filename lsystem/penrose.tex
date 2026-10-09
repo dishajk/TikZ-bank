@@ -1,0 +1,23 @@
+% inkscape sierpinski.pdf --export-type=png --export-filename=sierpinski.png --export-width=1024 --export-background-opacity=0
+% \documentclass[a3paper]{article}
+% \usepackage[left=0mm,top=1cm,right=0mm,bottom=0mm]{geometry}
+\documentclass[border=0]{standalone}
+% \documentclass[dvisvgm]{minimal}
+\usepackage{tikz}
+\usetikzlibrary{calc,lindenmayersystems}
+\usepackage{xcolor}
+\definecolor{pGreen}{HTML}{663366}
+\pgfdeclarelindenmayersystem{Penrose}{
+\symbol{F}{\pgflsystemdrawforward}
+\symbol{+}{\pgflsystemturnright} % Explicitly define + and - symbols.
+\symbol{-}{\pgflsystemturnleft}
+\rule{W -> YF++ZF----XF[-YF----WF]++}
+\rule{X -> +YF--ZF[---WF--XF]+}
+\rule{Y -> -WF++XF[+++YF++ZF]-}
+\rule{Z -> --YF++++WF[+ZF++++XF]--XF}
+}
+\begin{document}
+\begin{tikzpicture}
+      \draw[lindenmayer system={Penrose, step=512, axiom=[X]++[X]++[X]++[X]++[X], order=4, angle=36},pGreen] lindenmayer system;
+\end{tikzpicture}
+\end{document}

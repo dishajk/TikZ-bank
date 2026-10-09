@@ -1,0 +1,20 @@
+% inkscape levyc.pdf --export-type=png --export-filename=levyc.png --export-width=1024 --export-background-opacity=0
+% \documentclass[a3paper]{article}
+% \usepackage[left=0mm,top=1cm,right=0mm,bottom=0mm]{geometry}
+\documentclass[border=0]{standalone}
+% \documentclass[dvisvgm]{minimal}
+\usepackage{tikz}
+\usetikzlibrary{calc,lindenmayersystems}
+\usepackage{xcolor}
+\definecolor{pGreen}{HTML}{663366}
+\pgfdeclarelindenmayersystem{LevyC}{
+\symbol{F}{\pgflsystemdrawforward}
+\symbol{+}{\pgflsystemturnright} % Explicitly define + and - symbols.
+\symbol{-}{\pgflsystemturnleft}
+\rule{F -> +F--F+}
+}
+\begin{document}
+\begin{tikzpicture}
+      \draw[lindenmayer system={LevyC, step=32, axiom=F, order=14, angle=45},pGreen,line width=10pt] lindenmayer system;
+\end{tikzpicture}
+\end{document}

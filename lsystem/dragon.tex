@@ -1,0 +1,22 @@
+% inkscape dragon.pdf --export-type=png --export-filename=dragon.png --export-width=1024 --export-background-opacity=0
+% \documentclass[a3paper]{article}
+% \usepackage[left=0mm,top=1cm,right=0mm,bottom=0mm]{geometry}
+\documentclass[border=0]{standalone}
+% \documentclass[dvisvgm]{minimal}
+\usepackage{tikz}
+\usetikzlibrary{calc,lindenmayersystems}
+\usepackage{xcolor}
+\definecolor{pGreen}{HTML}{663366}
+\pgfdeclarelindenmayersystem{Dragon curve}{
+\symbol{X}{\pgflsystemdrawforward}
+\symbol{A}{\pgflsystemdrawforward}
+\symbol{+}{\pgflsystemturnright} % Explicitly define + and - symbols.
+\symbol{-}{\pgflsystemturnleft}
+\rule{A -> A+X}
+\rule{X -> A-X}
+}
+\begin{document}
+\begin{tikzpicture}
+      \draw[lindenmayer system={Dragon curve, step=20pt, axiom=A, order=15, angle=90},pGreen,line width=7pt] lindenmayer system;
+\end{tikzpicture}
+\end{document}

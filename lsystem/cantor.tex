@@ -1,0 +1,20 @@
+% inkscape cantor.pdf --export-type=png --export-filename=cantor.png --export-width=1024 --export-background-opacity=0
+% \documentclass[a3paper]{article}
+% \usepackage[left=0mm,top=1cm,right=0mm,bottom=0mm]{geometry}
+\documentclass[border=0]{standalone}
+% \documentclass[dvisvgm]{minimal}
+\usepackage{tikz}
+\usetikzlibrary{calc,lindenmayersystems}
+\usepackage{xcolor}
+\definecolor{pGreen}{HTML}{663366}
+\pgfdeclarelindenmayersystem{Cantor set}{
+    \rule{F -> FfF}
+    \rule{f -> fff}
+}
+\begin{document}
+\begin{tikzpicture}
+      \foreach \i in {0,...,8}{
+            \draw [pGreen,line width=7pt,yshift={(\i+1)*7pt}] [l-system={Cantor set, step={516/3^\i}, angle=0, axiom=F, order=\i}] lindenmayer system;
+      }
+\end{tikzpicture}
+\end{document}

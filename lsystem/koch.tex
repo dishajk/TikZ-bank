@@ -1,0 +1,17 @@
+% inkscape koch.pdf --export-type=png --export-filename=koch.png --export-width=1024 --export-background-opacity=0
+% \documentclass[a3paper]{article}
+% \usepackage[left=0mm,top=1cm,right=0mm,bottom=0mm]{geometry}
+\documentclass[border=0]{standalone}
+% \documentclass[dvisvgm]{minimal}
+\usepackage{tikz}
+\usetikzlibrary{calc,lindenmayersystems}
+\usepackage{xcolor}
+\definecolor{pGreen}{HTML}{663366}
+\pgfdeclarelindenmayersystem{Koch curve}{\rule{F -> F+F--F+F}}
+\begin{document}
+\begin{tikzpicture}
+      \draw [pGreen,line width=7pt]
+[l-system={Koch curve, step=20, angle=60, axiom=F, order=6}]
+lindenmayer system;
+\end{tikzpicture}
+\end{document}
