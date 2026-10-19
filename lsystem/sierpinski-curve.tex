@@ -1,0 +1,22 @@
+% inkscape sierpinski-curve.pdf --export-type=png --export-filename=sierpinski-curve.png --export-width=1024 --export-background-opacity=0
+% \documentclass[a3paper]{article}
+% \usepackage[left=0mm,top=1cm,right=0mm,bottom=0mm]{geometry}
+\documentclass[border=0]{standalone}
+% \documentclass[dvisvgm]{minimal}
+\usepackage{tikz}
+\usetikzlibrary{calc,lindenmayersystems}
+\usepackage{xcolor}
+\definecolor{pGreen}{HTML}{663366}
+\pgfdeclarelindenmayersystem{Sierpinski Curve}{
+\symbol{X}{\pgflsystemdrawforward}
+\symbol{F}{\pgflsystemdrawforward}
+\symbol{G}{\pgflsystemdrawforward}
+\symbol{+}{\pgflsystemturnright} % Explicitly define + and - symbols.
+\symbol{-}{\pgflsystemturnleft}
+\rule{X -> XF+GG+XF--F--XF+GG+X}
+}
+\begin{document}
+\begin{tikzpicture}
+      \draw[lindenmayer system={Sierpinski Curve, step=15, axiom=F--XF--F--XF, order=6, angle=45},pGreen,line width=6pt] lindenmayer system;
+\end{tikzpicture}
+\end{document}
